@@ -1,7 +1,7 @@
 
 
 /******************** class ********************/
-public class Character
+class Character
 {
   int mPosX;
   int mPosY;
@@ -41,7 +41,7 @@ class Baggage
   }
 }
 
-public class BaggageManager
+class BaggageManager
 {
   int mTotalCount;
   ArrayList<Baggage> mALBaggage;
@@ -211,8 +211,25 @@ char map[][] =
       'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
       'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
       'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w',},
-      
+
     // stage 5
+    { 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
+      'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
+      'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
+      'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
+      'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
+      'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'i', 'i', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
+      'w', 'w', 'w', 'w', 'w', 'w', 'i', 'i', 'i', 'i', 'w', 's', 'd', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
+      'w', 'w', 'w', 'w', 'w', 'w', 'i', 'i', 'i', 'i', 'b', 'b', 'd', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
+      'w', 'w', 'w', 'w', 'w', 'w', 'i', 'i', 'w', 'w', 'i', 'b', 'd', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
+      'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'i', 'i', 'i', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
+      'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
+      'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
+      'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
+      'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
+      'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w',},
+
+    // stage 6
     { 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
       'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
       'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
@@ -254,7 +271,7 @@ boolean gIsIntro = false;
 int gDelay;
 
 int gStage = 0;
-int gLastStage = 4;
+int gLastStage = 6;
 
 PFont gStepFont;
 PFont gTotalFont;
@@ -347,8 +364,6 @@ void keyPressed()
   switch(key) {
     case 'r':
     case 'R':
-      println("r input");
-    
       clear();
       gIsInitMap = false;
       bManager.reset();
@@ -357,7 +372,6 @@ void keyPressed()
 
     case 'u':
     case 'U':
-      println("u input");
       if(gHistory.getLife() < 1) {
         return ; 
       }
@@ -401,7 +415,7 @@ void keyPressed()
       case 'p':
       case 'P':
         clear();
-        --ngStage;
+        --gStage;
         gIsInitMap = false;
     
         gTotalScore += gHistory.mTotalCount;
@@ -414,10 +428,8 @@ void keyPressed()
   if(key == CODED) {
     switch(keyCode) {
       case LEFT:
-        println("left key event! char X = ", master.mPosX, " Y = ", master.mPosY);
         // check left side is a wall
         if(map[gStage][index - 1] == 'w') {
-          println("left key event! left side is a wall. don't move");
           return ;  // left side is a wall. don't move
         }
 
@@ -428,14 +440,12 @@ void keyPressed()
           // check baggage left side is a wall        
           if((b.mPosY == master.mPosY) && (b.mPosX == (master.mPosX - gBlocksize))) {
             if(map[gStage][index - 2] == 'w') {
-               println("left key event! left side is baggage, baggage left side is wall. don't move");
               return ;  // left side is baggage, baggage left side is wall. don't move
             } else {
               // check baggage left side is a baggage
               for(int scnt = 0;scnt < bManager.mALBaggage.size();++scnt) {
                 Baggage sb = bManager.mALBaggage.get(scnt);
                 if((sb.mPosY == master.mPosY) && (sb.mPosX == (master.mPosX - (gBlocksize * 2)))) {
-                  println("left key event! left side is baggage, baggage left side is baggage. don't move");
                   return ;  // left side is baggage, baggage left side is baggage. don't move
                 }
               }
@@ -455,7 +465,6 @@ void keyPressed()
         
         // move character on left
         master.mPosX -= gBlocksize;
-        println("left key event!2 char X = ", master.mPosX, " Y = ", master.mPosY);
         
         // write step history
         if(baggageMove) {
